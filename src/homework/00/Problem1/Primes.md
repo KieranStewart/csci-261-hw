@@ -26,6 +26,6 @@ We go through each number from 2 to n, for each number there are two cases. If t
 
 ## Running Estimate
 
-***$O(n^2)$***
+$O(n^2)$
 
 The program runs in $O(n^2)$ time, which we can tell because it runs through each number from $1$ to $n$ and for each of those it runs an operation from $2$ to the length of primes. Primes can be as long as n (as in the case of 2), so we get $n\times n$ or $n^2$
