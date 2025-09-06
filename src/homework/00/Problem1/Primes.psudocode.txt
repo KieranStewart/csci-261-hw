@@ -1,0 +1,9 @@
+getPrimes (n):
+    if n is less than 2 then return an empty array
+
+    create an empty array to hold the primes
+    let i = 2
+    for each number i from 2 to n (inclusive):
+        check if i is divisable by the numbers in the primes array.
+        if it isn't, add it to the primes array. 
+    return the primes array
