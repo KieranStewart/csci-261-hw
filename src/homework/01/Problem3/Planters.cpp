@@ -60,7 +60,7 @@ bool movePlants(int oldPots[], int p, int newPots[], int r) {
     int new_pot_pointer = 0;
 
     // I realized we don't actually need to store the output arr unless required
-    for (int i = p; i < p; ++i) {
+    for (int i = 0; i < p; ++i) {
         int pot = oldPots[i];
 
         if (new_pot_pointer < r && pot < newPots[new_pot_pointer]) {
