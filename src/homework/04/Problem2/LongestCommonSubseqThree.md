@@ -81,7 +81,7 @@ def reconstruct_3d_subseq(A:array<int>, B:array<int>, C:array<int>, S:array<arra
             out.append(A[j])
         else if S[j-1,k,l]>S[j,k-1,l] and S[j-1,k,l] > S[j,k,l-1]:
             j--
-        else if S[j,k-1,l]>S[j-1,k,l] and S[j,k-1,l] > S[j,k,l-1]:
+        else if A[[j,k-1,l]]>S[j-1,k,l] and S[j,k-1,l] > S[j,k,l-1]:
             k--
         else:
             l--
@@ -100,7 +100,7 @@ def reconstruct_3d_subseq(A:array<int>, B:array<int>, C:array<int>, S:array<arra
     j=A.len,k=B.len,l=C.len # O(n)
     let output:array<int> # O(n)
     while (j>0 and k>0 and l>0): # Runs p+q+r times
-        if S[j-1,k,l]==S[j,k-1,l] and S[j-1,k]=S[j,k,l-1]:# Runs p times
+        if A[j-1]==B[k-1] == C[l-1]:# Runs p times
             j--,k--,l-- # O(n)
             out.append(A[j]) # O(n)
         else if S[j-1,k,l]>S[j,k-1,l] and S[j-1,k,l] > S[j,k,l-1]:# Runs q times
