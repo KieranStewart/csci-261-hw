@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class DoubleKnapsackWithSolution {
     static int[][] maxWeight(int[] costs, int[] weights, int W1, int W2, int n) {
         int[][][] S = new int[n+1][W1+1][W2+1];
@@ -23,7 +25,7 @@ public class DoubleKnapsackWithSolution {
                 }
             }
         }
-        System.out.println("Max Cost:" + S[n][W1][W2]);
+        System.out.println(""+S[n][W1][W2]);
         return reconstructSolution(costs, weights, W1, W2, n, S);
     }
 
@@ -57,23 +59,29 @@ public class DoubleKnapsackWithSolution {
         return cleanedOut;
     }
     public static void main(String[] args) {
-        // 6 1
-        // 5 7
-        // 6 9
-        // 8 6
-        // 3 3
-        int[] costs = new int[] {6,5,6,8,3};
-        int[] weights = new int[] {1,7,9,6,3};
-        int n = 5;
-        int W1 = 10;
-        int W2 = 10;
+        Scanner sc = new Scanner(System.in);
+        String[] raw_lens = sc.nextLine().trim().split("\\s+");
+        int n = Integer.parseInt(raw_lens[0]);
+        int W1 = Integer.parseInt(raw_lens[1]);
+        int W2 = Integer.parseInt(raw_lens[2]);
+
+        int[] costs = new int[n];
+        int[] weights = new int[n];
+
+        for (int i = 0; i < n; i ++) {
+            String[] raw_cost_weight = sc.nextLine().trim().split("\\s+");
+            costs[i] = Integer.parseInt(raw_cost_weight[0]);
+            weights[i] = Integer.parseInt(raw_cost_weight[1]);
+        }
+        sc.close();
+
+        
         int[][] result = maxWeight(costs, weights, W1, W2, n);
         for (int i = 0; i < result.length; i ++) {
-            System.out.print("[");
             for (int j = 0; j < result[i].length; j++) {
                 System.out.print(result[i][j]+" ");
             }
-            System.out.println("]");
+            System.out.println();
         }
     }
 }

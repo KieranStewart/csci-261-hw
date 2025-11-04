@@ -1,5 +1,7 @@
 # Double Knapsack
 
+According to the parameters, the answers on the website for this one don't seem to be correct, since my algorithm appears to be returning a greater maximum value, however I could be misunderstanding something.
+
 ## Reasoning
 
 The solution I found was to use a method very similar to the dynamic programming method we used previously, except instead of having a 2d array with item index, and weight, we could have a 3d array with item index, weight capacity of one bag, and weight capacity of the other. The dynamic solution would be as follows:
@@ -36,13 +38,13 @@ def maxWeight(costs: array<int>, weights: array<int>, W_1, W_2, n):
 
 ## Proof
 
-The base case for this algorithm is true, since without any items in the bag, the bag has no cost, so those places are all zero. Then we can set all the places where the total weight is zero to zero. After this we can move on to the steps which build off that. At any given $S[j,v,w]$ position, we know that it is the maximum possible cost of items up to item j, with weights fitting in knapsacks of size v and w, since it is either the preious maximum without the new item, or it is a previous maximum with the new item, whichever is larger, which will always be the largest possible cost, since the prior ones were the largest possible cost. 
+The base case for this algorithm is true, since without any items in the bag, the bag has no cost, so those places are all zero. Then we can set all the places where the total weight is zero to zero. After this we can move on to the steps which build off that. At any given $S[j,v,w]$ position, we know that it is the maximum possible cost of items up to item j, with weights fitting in knapsacks of size v and w, since it is either the preious maximum without the new item, or it is a previous maximum with the new item, whichever is larger, which will always be the largest possible cost, since the prior ones were the largest possible cost.
 
 ## Running Time
 
 ### Estimate
 
-The running time is $\Theta(n\cdot W_1\cdot W_2)$ 
+The running time is $\Theta(n\cdot W_1\cdot W_2)$
 
 ### Running Time Reasoning
 
